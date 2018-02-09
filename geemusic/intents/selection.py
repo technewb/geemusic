@@ -10,7 +10,7 @@ def login():
     prompt = 'For example say, play music by A Tribe Called Quest'
     return question(text).reprompt(prompt) \
         .simple_card(title='Welcome to GeeMusic!',
-                     content='Try asking me to play a song')
+                     content='Try asking me to play a song or dance to music')
 
 
 @ask.intent("AMAZON.HelpIntent")
