@@ -6,11 +6,11 @@ from geemusic.utils.music import GMusicWrapper
 @ask.launch
 def login():
     text = 'Welcome to Gee Music. \
-            Try asking me to play a song or start a playlist'
+            Try asking me to play a song, start a playlist, or play situations'
     prompt = 'For example say, play music by A Tribe Called Quest'
     return question(text).reprompt(prompt) \
         .simple_card(title='Welcome to GeeMusic!',
-                     content='Try asking me to play a song or dance to music')
+                     content='Try asking me to play a song')
 
 
 @ask.intent("AMAZON.HelpIntent")
