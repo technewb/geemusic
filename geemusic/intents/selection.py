@@ -46,8 +46,7 @@ def play_situation():
     # except KeyError:
     my_list = ""
     for t in situation:
-        my_list = my_list + str(t["title"] + " (" + t["id"] +"), ")
-    return statement("Here are some situations: %s" % (my_list))
+        my_list = my_list + str(t["title"] + ", ")
     created_station_id = api.create_station(situation[0]["stations"][0]["seed"]["curatedStationId"])
 
     tracks = api.get_station_tracks(created_station_id)
@@ -56,7 +55,7 @@ def play_situation():
     stream_url = api.get_stream_url(first_song_id)
 
     thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
-    speech_text = "Playing from %s situation" % (situation[0]["stations"][0]["name"])
+    speech_text = "Here are some situations: %s and now playing station: %s" % (my_list, str(situation[0]["stations"][0]["name"]))
     return audio(speech_text).play(stream_url) \
         .standard_card(title=speech_text,
                     text='',
