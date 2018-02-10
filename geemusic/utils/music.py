@@ -264,8 +264,8 @@ class GMusicWrapper(object):
     def get_listen_now_situations(self):
         return self._api.get_listen_now_situations()
 
-    def create_station(self, station_name, station_id):
-        return self._api.create_station(station_name, curated_station_id=station_id)
+    def create_station(self, station_name, curated_station_id=None):
+        return self._api.create_station(station_name, curated_station_id)
 
     @classmethod
     def generate_api(cls, **kwargs):
