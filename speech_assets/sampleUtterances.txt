@@ -1,3 +1,5 @@
+GeeMusicPlaySituationsIntent Play situations
+
 GeeMusicPlayArtistIntent Play artist {artist_name}
 GeeMusicPlayArtistIntent Play songs by {artist_name}
 GeeMusicPlayArtistIntent Play top songs by {artist_name}

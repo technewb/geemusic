@@ -30,7 +30,6 @@ def help():
     prompt = 'For example say, play music by A Tribe Called Quest'
     return question(text).reprompt(prompt)
 
-
 @ask.intent("GeeMusicPlayArtistIntent")
 def play_artist(artist_name):
     # Fetch the artist
@@ -159,6 +158,20 @@ def play_similar_song_radio():
                        small_image_url=thumbnail,
                        large_image_url=thumbnail)
 
+#TODO: MINE
+@ask.intent("GeeMusicPlaySituationsIntent")
+def play_situation():
+    # s = api.get_listen_now_situations()
+
+    return statement("Your situations intent is working")
+
+    # thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
+    # speech_text = "Playing your upvoted songs."
+    # return audio(speech_text).play(stream_url) \
+    #     .standard_card(title=speech_text,
+    #                    text='',
+    #                    small_image_url=thumbnail,
+    #                    large_image_url=thumbnail)
 
 @ask.intent("GeeMusicPlaySongRadioIntent")
 def play_song_radio(song_name, artist_name, album_name):

@@ -28,6 +28,10 @@
         {
             "intent": "GeeMusicPlaySimilarSongsRadioIntent"
         },
+        //MINE
+        {
+            "intent": "GeeMusicPlaySituationsIntent"
+        },
         {
             "intent": "GeeMusicPlaySongIntent",
             "slots": [
