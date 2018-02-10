@@ -15,7 +15,7 @@ def login():
 
 @ask.intent("AMAZON.HelpIntent")
 def help():
-    text = ''' Test Here are some things you can say:
+    text = ''' Here are some things you can say:
                 Play songs by Radiohead,
                 Play the album Science For Girls,
                 Play the song Fitter Happier,
