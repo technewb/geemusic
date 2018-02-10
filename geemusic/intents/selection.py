@@ -46,7 +46,7 @@ def play_situation():
     # except KeyError:
     my_list = ""
     for t in situation:
-        my_list = my_list + str(t["title"] + ", ")
+        my_list = my_list + str(t["title"] + " (" + t["id"] +"), ")
     return statement("Here are some situations: %s" % (my_list))
     created_station_id = api.create_station(situation[0]["stations"][0]["seed"]["curatedStationId"])
 
