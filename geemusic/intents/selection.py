@@ -54,22 +54,15 @@ def play_situation():
     first_song_id = queue.reset(tracks)
     stream_url = api.get_stream_url(first_song_id)
 
+    station_name = situation[0]["stations"][0]["name"]
+
     thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
-    speech_text = "Playing station: %s " % (str(situation[0]["stations"][0]["name"]))
-    return statement(speech_text)
+    speech_text = "Playing station: %s " % station_name
     return audio(speech_text).play(stream_url) \
         .standard_card(title=speech_text,
                        text='',
                        small_image_url=thumbnail,
                        large_image_url=thumbnail)
-
-    # thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
-    # speech_text = "Playing your upvoted songs."
-    # return audio(speech_text).play(stream_url) \
-    #     .standard_card(title=speech_text,
-    #                    text='',
-    #                    small_image_url=thumbnail,
-    #                    large_image_url=thumbnail)
 
 @ask.intent("GeeMusicPlayArtistIntent")
 def play_artist(artist_name):
