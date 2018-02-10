@@ -58,9 +58,9 @@ def play_situation():
     speech_text = "Playing station: %s " % (str(situation[0]["stations"][0]["name"]))
     return audio(speech_text).play(stream_url) \
         .standard_card(title=speech_text,
-                    text='',
-                    small_image_url=thumbnail,
-                    large_image_url=thumbnail)
+                       text='',
+                       small_image_url=thumbnail,
+                       large_image_url=thumbnail)
 
     # thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
     # speech_text = "Playing your upvoted songs."
