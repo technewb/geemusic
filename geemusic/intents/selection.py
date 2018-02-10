@@ -43,7 +43,7 @@ def play_situation():
     try:
         return statement("Playing from %s situation" % (str(situation[0]["stations"][0]["name"])))
     except KeyError:
-        return statement("Playing from %s situation" % (str(situation[0]["situations"][0]["title"])))
+        return statement("Playing from %s situation" % (str(situation[0]["title"])))
     created_station_id = api.create_station(situation[0]["stations"][0]["seed"]["curatedStationId"])
 
     tracks = api.get_station_tracks(created_station_id)
