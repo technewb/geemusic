@@ -261,6 +261,9 @@ class GMusicWrapper(object):
     def get_song_data(self, song_id):
         return self._api.get_track_info(song_id)
 
+    def get_listen_now_situations(self):
+        return self._api.get_listen_now_situations()
+
     @classmethod
     def generate_api(cls, **kwargs):
         return cls(environ['GOOGLE_EMAIL'], environ['GOOGLE_PASSWORD'],
