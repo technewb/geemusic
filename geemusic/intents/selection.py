@@ -34,7 +34,7 @@ def help():
 def play_situation():
     # s = api.get_listen_now_situations()
 
-    return statement("Your situations intent is working")
+    #return statement("Your situations intent is working")
 
     # Fetch the song
 
