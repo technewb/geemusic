@@ -39,6 +39,7 @@ def play_situation():
     # Fetch the song
 
     situation = api.get_listen_now_situations()
+    return statement("Playing from %s situation" % (situation[0]["stations"][0]["name"]))
     created_station_id = api.create_station(situation[0]["stations"][0]["seed"]["curatedStationId"])
 
     tracks = api.get_station_tracks(created_station_id)
