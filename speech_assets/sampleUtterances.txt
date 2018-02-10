@@ -1,4 +1,4 @@
-GeeMusicPlaySituationsIntent Find me a list of songs
+GeeMusicPlaySituationsIntent Give me situations
 
 GeeMusicPlayArtistIntent Play artist {artist_name}
 GeeMusicPlayArtistIntent Play songs by {artist_name}
