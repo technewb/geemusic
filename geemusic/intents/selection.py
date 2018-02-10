@@ -47,8 +47,7 @@ def play_situation():
     my_list = ""
     for t in situation:
         my_list = my_list + str(t["title"] + ", ")
-    return statement("Station id is: " + str(situation[0]["stations"][0]["seed"]["curatedStationId"]))
-    created_station_id = api.create_station(situation[0]["stations"][0]["seed"]["curatedStationId"])
+    created_station_id = api.create_station(situation[0]["stations"]["name"], curated_station_id=situation[0]["stations"][0]["seed"]["curatedStationId"])
 
     tracks = api.get_station_tracks(created_station_id)
 
