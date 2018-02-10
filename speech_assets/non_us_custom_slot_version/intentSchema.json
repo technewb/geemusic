@@ -6,6 +6,9 @@
 		{
 			"intent": "AMAZON.ResumeIntent"
 		},
+      {
+        "intent": "GeeMusicPlaySituationsIntent"
+      },
 		{
 			"intent": "GeeMusicPlayArtistIntent",
 			"slots": [
