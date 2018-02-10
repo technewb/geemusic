@@ -133,13 +133,15 @@ class GMusicWrapper(object):
     def get_promoted_songs(self):
         return self._api.get_promoted_songs()
     
-    def get_station(self, title, track_id=None, artist_id=None, album_id=None):
-        if artist_id is not None:
-            if album_id is not None:
-                if track_id is not None:
-                    return self._api.create_station(title, track_id=track_id)
-                return self._api.create_station(title, album_id=album_id)
-            return self._api.create_station(title, artist_id=artist_id)
+    def get_station(self, title, track_id=None, artist_id=None, album_id=None, station_id=None):
+        if station_id is not None:
+            if artist_id is not None:
+                if album_id is not None:
+                    if track_id is not None:
+                        return self._api.create_station(title, track_id=track_id)
+                    return self._api.create_station(title, album_id=album_id)
+                return self._api.create_station(title, artist_id=artist_id)
+            return self._api.create_station(title, curated_station_id=station_id)
 
     def get_station_tracks(self, station_id):
         return self._api.get_station_tracks(station_id)
@@ -263,9 +265,6 @@ class GMusicWrapper(object):
 
     def get_listen_now_situations(self):
         return self._api.get_listen_now_situations()
-
-    def create_station(self, station_name, curated_station_id=None):
-        return self._api.create_station(station_name, curated_station_id)
 
     @classmethod
     def generate_api(cls, **kwargs):
