@@ -40,10 +40,14 @@ def play_situation():
 
     situation = api.get_listen_now_situations()
 
+
     try:
         return statement("Playing from %s situation" % (str(situation[0]["stations"][0]["name"])))
     except KeyError:
-        return statement("Playing from %s situation" % (str(situation[0]["title"])))
+        my_list = ""
+        for t in situation:
+            my_list = my_list + str(t["title"] + ", ")
+        return statement("Here are some situations: %s" % (my_list))
     created_station_id = api.create_station(situation[0]["stations"][0]["seed"]["curatedStationId"])
 
     tracks = api.get_station_tracks(created_station_id)
@@ -412,3 +416,5 @@ def play_library():
 
     speech_text = "Playing music from your library"
     return audio(speech_text).play(stream_url)
+
+play_situation()
