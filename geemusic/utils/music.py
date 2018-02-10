@@ -264,6 +264,9 @@ class GMusicWrapper(object):
     def get_listen_now_situations(self):
         return self._api.get_listen_now_situations()
 
+    def create_station(self, station_id):
+        return self._api.create_station(station_id)
+
     @classmethod
     def generate_api(cls, **kwargs):
         return cls(environ['GOOGLE_EMAIL'], environ['GOOGLE_PASSWORD'],
