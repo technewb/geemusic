@@ -58,11 +58,11 @@ def play_situation():
 
     thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
     speech_text = "Playing station: %s " % station_name
-    return audio(speech_text).play(stream_url) \
-        .standard_card(title=speech_text,
-                       text='',
-                       small_image_url=thumbnail,
-                       large_image_url=thumbnail)
+    return audio(speech_text).play(stream_url)
+    #     .standard_card(title=speech_text,
+    #                    text='',
+    #                    small_image_url=thumbnail,
+    #                    large_image_url=thumbnail)
 
 @ask.intent("GeeMusicPlayArtistIntent")
 def play_artist(artist_name):
