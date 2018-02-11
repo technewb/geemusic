@@ -47,18 +47,24 @@ def play_situation():
     my_list = ""
     for t in situation:
         my_list = my_list + str(t["title"] + ", ")
-    created_station_id = api.get_station(situation[0]["stations"][0]["name"], station_id=situation[0]["stations"][0]["seed"]["curatedStationId"])
+
+    situation_name = str(situation[0]["stations"][0]["name"])
+    situation_station_id = str(situation[0]["stations"][0]["seed"]["curatedStationId"])
+
+    created_station_id = api.get_station(situation_name, station_id=situation_station_id)
 
     tracks = api.get_station_tracks(created_station_id)
 
     first_song_id = queue.reset(tracks)
     stream_url = api.get_stream_url(first_song_id)
 
+    return statement(stream_url)
+
     station_name = situation[0]["stations"][0]["name"]
 
-    thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
-    speech_text = "Playing station: %s " % station_name
-    return audio(speech_text).play(stream_url)
+    # thumbnail = api.get_thumbnail(queue.current_track()['albumArtRef'][0]['url'])
+    # speech_text = "Playing station: %s " % station_name
+    return audio("Testing").play(stream_url)
     #     .standard_card(title=speech_text,
     #                    text='',
     #                    small_image_url=thumbnail,
@@ -214,8 +220,6 @@ def play_song_radio(song_name, artist_name, album_name):
 
     station_id = api.get_station("%s Radio" %
                                  song['title'], track_id=song['storeId'], artist_id=artist['artistId'], album_id=album['albumId'])
-
-    return statement(str(station_id))
 
     tracks = api.get_station_tracks(station_id)
 
