@@ -181,6 +181,8 @@ def play_similar_song_radio():
                                  song['title'], track_id=song['storeId'], artist_id=artist['artistId'], album_id=album['albumId'])
     tracks = api.get_station_tracks(station_id)
 
+    return statement(str(station_id))
+
     first_song_id = queue.reset(tracks)
     stream_url = api.get_stream_url(first_song_id)
 
