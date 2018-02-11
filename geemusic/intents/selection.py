@@ -58,7 +58,7 @@ def play_situation():
     first_song_id = queue.reset(tracks)
     stream_url = api.get_stream_url(first_song_id)
 
-    return statement(stream_url)
+    # return statement(stream_url)
 
     station_name = situation[0]["stations"][0]["name"]
 
