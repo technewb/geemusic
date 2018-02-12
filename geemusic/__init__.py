@@ -10,15 +10,16 @@ from .utils.music_queue import MusicQueue
 app = Flask(__name__)
 ask = Ask(app, '/alexa')
 
-if str(environ['DEBUG_MODE']) is True:
-    log_level = logging.DEBUG
-else:
-    log_level = logging.INFO
+with app.app_context():
+    if str(environ['DEBUG_MODE']) is True:
+        log_level = logging.DEBUG
+    else:
+        log_level = logging.INFO
 
-logging.getLogger("flask_ask").setLevel(log_level)
+    logging.getLogger("flask_ask").setLevel(log_level)
 
-api = GMusicWrapper.generate_api(logger=app.logger)
-queue = MusicQueue(api)
+    api = GMusicWrapper.generate_api(logger=app.logger)
+    queue = MusicQueue(api)
 
-from . import intents
-from . import controllers
+    from . import intents
+    from . import controllers
